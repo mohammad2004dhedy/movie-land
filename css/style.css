@@ -111,6 +111,7 @@ a.active{
 }
 .moviesList .container .content .movieBox:hover img{
     transform: scale(1.05);
+    filter: brightness(50%);
 }
 .moviesList .container .content .movieBox::before{
     content: "";
@@ -135,5 +136,17 @@ a.active{
     letter-spacing: 1px;
     font-size: 18px;
     z-index: 2;
+}
+.moviesList .container .content .movieBox .addFav{
+    position:absolute;
+    top: 0;
+    right:10px;
+    font-size:30px;
+    color: white;
+    z-index: 2;
+}
+.moviesList .container .content .movieBox .addFav.active{
+    font-weight:800;
+    color: crimson;
 }
 /* movies list section end */

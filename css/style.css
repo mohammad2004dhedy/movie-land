@@ -207,7 +207,7 @@ body {
     text-align: center;
     border-radius:40px;
     position: relative;
-    height: 90px;
+    height:75px;
   }
   @property --angle {
     syntax: "<angle>";

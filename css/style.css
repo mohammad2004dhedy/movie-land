@@ -8,8 +8,6 @@
   --secondry-color: #1c2120;
   --red-color: red;
   --background-color: black;
-  --section-padding-x: 50px;
-  /* ^ this padding for x-axis according to design */
 }
 .container {
   padding: 0 15px;
@@ -34,3 +32,108 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+/* movies list section start */
+.moviesList{
+    min-height:100vh;
+    background:var(--background-color);
+    width: 100%;
+    padding:30px 0;
+  overflow: hidden;
+}
+.moviesList form{
+    min-width:290px;
+    max-width: 500px;
+    height:44px;
+    margin:0 auto 60px;
+    position: relative;
+}
+.moviesList form input{
+    width:100%;
+    height: 100%;
+    background:transparent;
+    border: solid 2px white;
+    border-radius:20px;
+    padding:5px 5px 5px 45px;
+    color: white;
+    outline: none;
+}
+.moviesList form label{
+    color: white;
+    font-size:25px;
+    position: absolute;
+    left:10px;
+    top: 50%;
+    transform:translateY(-50%);
+    cursor: pointer;
+}
+.thumbnail{
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap:60px;
+}
+.thumbnail a{
+    color: white;
+    text-decoration: none;
+    font-size:22px;
+    border: solid 1px white;
+    width:130px;
+    display: inline-block;
+    padding:8px 5px;
+    text-align: center;
+    text-transform: capitalize;
+    transition: 400ms;
+}
+a.active{
+    background: var(--red-color);
+    border-color:var(--red-color);
+}
+.moviesList .container .content{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,300px));
+    grid-gap:15px;
+    margin:60px 0 0;
+    justify-content: center;
+}
+.moviesList .container .content .movieBox{
+    position: relative;
+    border: solid 1px gray;
+    border-radius:10px;
+    height:400px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.moviesList .container .content .movieBox img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition:400ms;
+}
+.moviesList .container .content .movieBox:hover img{
+    transform: scale(1.05);
+}
+.moviesList .container .content .movieBox::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom:-80px;
+    background:linear-gradient(to top,var(--red-color),transparent);
+    width: 100%;
+    height: 80%;
+    z-index: 1;
+    transition:400ms;
+}
+.moviesList .container .content .movieBox:hover::before{
+    bottom: -30px;
+}
+.moviesList .container .content .movieBox span{
+    color: white;
+    position:absolute;
+    left: 10px;
+    bottom:30px;
+    font-weight:bold;
+    letter-spacing: 1px;
+    font-size: 18px;
+    z-index: 2;
+}
+/* movies list section end */

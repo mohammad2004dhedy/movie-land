@@ -136,7 +136,7 @@ header nav .links a:hover {
   transform: translate(-50%, -50%);
 }
 
-button {
+.main button {
   border: none;
   position: relative;
   width: 290px;
@@ -154,7 +154,7 @@ button {
   transform: translateY(8px);
 }
 
-button:after {
+.main button:after {
   content: "";
   position: absolute;
   left: 0;
@@ -164,11 +164,11 @@ button:after {
   transition: all 2s ease;
 }
 
-button:hover:after {
+.main button:hover:after {
   box-shadow: 0px -13px 56px 12px var(--red-color);
 }
 
-button span {
+.main button span {
   position: absolute;
   width: 100%;
   font-size: 20px;
@@ -182,11 +182,11 @@ button span {
   transition: all 2s ease;
 }
 
-button:hover span {
+.main button:hover span {
   color: white;
 }
 
-button:before {
+.main button:before {
   content: "";
   position: absolute;
   width: 0;
@@ -198,7 +198,7 @@ button:before {
   transition: all 1s ease;
 }
 
-button:hover:before {
+.main button:hover:before {
   width: 100%;
 }
 
@@ -294,7 +294,7 @@ button:hover:before {
   justify-content: center;
   gap: 60px;
 }
-.thumbnail a {
+.thumbnail button {
   color: white;
   text-decoration: none;
   font-size: 22px;
@@ -305,8 +305,9 @@ button:hover:before {
   text-align: center;
   text-transform: capitalize;
   transition: 400ms;
+  background:transparent;
 }
-a.active {
+.thumbnail button.active {
   background: var(--red-color);
   border-color: var(--red-color);
 }
@@ -544,6 +545,10 @@ footer {
   color: var(--red-color);
 }
 
+.footer-logo .imageLogo img{
+  width: 80px;
+  height: 80px;
+}
 .footer-links ul {
   list-style: none;
   padding: 10px 0;

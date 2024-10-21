@@ -34,7 +34,7 @@
         </header>
       </div>
     </section>
-    <section class="moviesList">
+    <section class="moviesList" id="moviesList">
       <div class="container">
         <form>
           <input type="search" id="search" placeholder="search for a movie" />
@@ -43,8 +43,8 @@
           ></label>
         </form>
         <div class="thumbnail">
-          <a class="active" href="#" id="allBtn" data-category="all">all</a>
-          <a href="#" id="favoriteBtn" data-category="all">favorities</a>
+          <button class="active" id="allBtn">all</button>
+          <button id="favoriteBtn">favorities</button>
         </div>
         <div class="content">
           <div class="movieBox" data-favorite="true">
@@ -67,33 +67,39 @@
     </section>
     <footer>
       <div class="footer-content">
-          <div class="footer-logo">
-              <h1>movieland</h1>
-              <p>copyRight reserved <i class="fa-regular fa-copyright"></i> <span>GSG team 2024</span></p>
+        <div class="footer-logo">
+          <div class="imageLogo">
+              <img src="images/logo.png" alt="logo">
           </div>
-          <div class="footer-links">
-              <ul>
-                  <li><a href="#">home</a></li>
-                  <li><a href="#">favorites</a></li>
-                  <li><a href="#">login</a></li>
-              </ul>
+          <h1>movieland</h1>
+          <p>
+            copyRight reserved <i class="fa-regular fa-copyright"></i>
+            <span>GSG team 2024</span>
+          </p>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="#">home</a></li>
+            <li><a href="#">favorites</a></li>
+            <li><a href="#">login</a></li>
+          </ul>
+        </div>
+        <div class="footer-profiles">
+          <div class="profile">
+            <img src="./images/anas.jpeg" alt="Profile 1" />
+            <p>Anas</p>
           </div>
-          <div class="footer-profiles">
-              <div class="profile">
-                  <img src="./images/anas.jpeg" alt="Profile 1">
-                  <p>Anas</p>
-              </div>
-              <div class="profile">
-                  <img src="./images/mohammed.jpeg" alt="Profile 2">
-                  <p>Mohammed</p>
-              </div>
-              <div class="profile">
-                  <img src="./images/hamza.jpeg" alt="Profile 3">
-                  <p>Hamza</p>
-              </div>
+          <div class="profile">
+            <img src="./images/mohammed.jpeg" alt="Profile 2" />
+            <p>Mohammed</p>
           </div>
+          <div class="profile">
+            <img src="./images/hamza.jpeg" alt="Profile 3" />
+            <p>Hamza</p>
+          </div>
+        </div>
       </div>
-  </footer>
+    </footer>
     <!-- <script src="js/all.min.js"></script> -->
     <script src="js/app.js"></script>
   </body>

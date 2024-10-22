@@ -1,54 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>movie land</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/all.min.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Land - Detail</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="icon" href="./images/logo.png" type="image/x-icon" />
+  </head>
+  <body style="background-color:var(--background-color);">
     <div class="movieDetail">
-        <i class="fa-regular fa-circle-xmark closeBtn"></i>
-        <div class="container">
-          <div class="content">
+      <i
+        class="fa-regular fa-circle-xmark closeBtn"
+        onclick="window.close();"
+      ></i>
+      <div class="container">
+        <div class="content">
           <div class="topPart">
             <div class="image">
-              <img src="images/ironman.webp" alt="movie title goes here" />
+              <img
+                id="movieImage"
+                src="images/noImage.webp"
+                alt="movie title goes here"
+              />
             </div>
             <div class="detail">
-              <h2 class="movieTitle">IronMan</h2>
+              <h2 id="movieTitle" class="movieTitle">Loading...</h2>
               <div class="iconsDetail">
                 <div class="icon">
                   <i class="fa-brands fa-imdb"></i>
-                  <span class="rate">7.7</span>
+                  <span id="movieRating" class="rate">N/A</span>
                 </div>
                 <div class="icon">
                   <i class="fa-regular fa-calendar-days"></i>
-                  <span class="rate">2022</span>
+                  <span id="movieYear" class="rate">N/A</span>
                 </div>
                 <div class="icon">
                   <i class="fa-solid fa-square-poll-vertical"></i>
-                  <span class="rate">128</span>
+                  <span id="movieDuration" class="rate">N/A</span>
                 </div>
               </div>
             </div>
           </div>
           <div class="bottomPart">
             <div class="description">
-              <p>
-                here goes movie description and story here goes movie
-                description and story here goes movie description and story
-              </p>
+              <p id="movieDescription">Loading description...</p>
             </div>
             <div class="buttons">
-              <a href="#"><span>download</span></a>
-              <a href="#"><span>watch</span></a>
+              <a href="#"><span>Download</span></a>
+              <a href="#"><span>Watch</span></a>
             </div>
+            <iframe
+             
+              src="https://www.youtube.com/embed/t96vDwlRDzI?si=B7H6EkhKvpELslMw"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
           </div>
         </div>
-        </div>
       </div>
-      <script src="js/app.js"></script>
-</body>
+    </div>
+
+    <script>
+      const apiKey = "6345300bfd3be8919424dc0b3e207528";
+      const apiUrl = "https://api.themoviedb.org/3";
+ 
+      // fetch the movie name from the app.js file to fetch its data from the api
+      const params = new URLSearchParams(window.location.search);
+      const movieTitle = params.get("movie");
+
+      // fetch the movie from API
+      async function getMovieDetails(title) {
+        try {
+          const response = await fetch(`${apiUrl}/search/movie?api_key=${apiKey}&query=${encodeURIComponent(title)}`);
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          const data = await response.json();
+          if (data.results.length > 0) {
+            const movie = data.results[0];
+            document.getElementById("movieImage").src = movie.poster_path? `https://image.tmdb.org/t/p/w200${movie.poster_path}`:"images/noImage.webp";
+            document.getElementById("movieTitle").textContent =movie.title || "no title :!";
+            document.getElementById("movieRating").textContent =movie.vote_average ? movie.vote_average.toFixed(1) : "0.0";
+            document.getElementById("movieYear").textContent =movie.release_date? new Date(movie.release_date).getFullYear(): "no data";
+            document.getElementById("movieDuration").textContent = movie.vote_count? `${movie.vote_count} vote`: "N/A";
+            document.getElementById("movieDescription").textContent =movie.overview || "no description available";
+              //document.querySelector("iframe").src=`${movie.}`;
+          } else {
+            document.getElementById("movieTitle").textContent ="No movie found";
+          }
+        } catch (error) {
+          console.error("Error fetching movie details:", error);
+          document.getElementById("movieTitle").textContent ="Error fetching movie details";
+        }
+      }
+
+      // fetch movie details
+      if (movieTitle) {
+        getMovieDetails(movieTitle);
+      } else {
+        document.getElementById("movieTitle").textContent = "No movie selected";
+      }
+    </script>
+  </body>
 </html>

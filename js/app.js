@@ -51,7 +51,7 @@ async function searchMovies(query) {
 
 // to show the result of the search
 function displayMovies(movies) {
-  const searchResultsDiv = document.querySelector(".content");
+  const searchResultsDiv = document.querySelector(".moviesList .content");
   searchResultsDiv.innerHTML = "";
   if (movies.length > 0) {
     movies.forEach((movie) => {

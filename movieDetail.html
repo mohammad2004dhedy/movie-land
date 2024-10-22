@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/all.min.css" />
     <link rel="icon" href="./images/logo.png" type="image/x-icon" />
   </head>
-  <body style="background-color:var(--background-color);">
+  <body style="background-color: var(--background-color)">
     <div class="movieDetail">
       <i
         class="fa-regular fa-circle-xmark closeBtn"
@@ -18,6 +18,8 @@
         <div class="content">
           <div class="topPart">
             <div class="image">
+              <span class="DataType" id="DataType">movie</span>
+              <span class="dataRated" id="dataRated">PG-13</span>
               <img
                 id="movieImage"
                 src="images/noImage.webp"
@@ -27,6 +29,10 @@
             <div class="detail">
               <h2 id="movieTitle" class="movieTitle">Loading...</h2>
               <div class="iconsDetail">
+                <div class="icon">
+                  <i class="fa-regular fa-clock"></i>
+                  <span id="movieDuration" class="movieDuration">N/A</span>
+                </div>
                 <div class="icon">
                   <i class="fa-brands fa-imdb"></i>
                   <span id="movieRating" class="rate">N/A</span>
@@ -40,6 +46,9 @@
                   <span id="movieDuration" class="rate">N/A</span>
                 </div>
               </div>
+              <div class="movieGenre" id="movieGenre">
+                Action, Adventure, Sci-Fi
+              </div>
             </div>
           </div>
           <div class="bottomPart">
@@ -50,8 +59,73 @@
               <a href="#"><span>Download</span></a>
               <a href="#"><span>Watch</span></a>
             </div>
+            <div class="DirectorsActorsLanguages" id="DirectorsAndWriters">
+              <div class="infoTitle">Directors & Writers</div>
+
+              <div class="content">
+                <div class="data">
+                  <img
+                    class="image"
+                    src="images/profileImage.png"
+                    alt=" put actore name here"
+                  />
+                  <span>name here</span>
+                </div>
+                <div class="data">
+                  <img
+                    class="image"
+                    src="images/profileImage.png"
+                    alt=" put actore name here"
+                  />
+                  <span>name here</span>
+                </div>
+                <div class="data">
+                  <img
+                    class="image"
+                    src="images/profileImage.png"
+                    alt=" put actore name here"
+                  />
+                  <span>name here</span>
+                </div>
+              </div>
+            </div>
+            <div class="DirectorsActorsLanguages" id="actors">
+              <div class="infoTitle">Actors</div>
+
+              <div class="content">
+                <div class="data">
+                  <img
+                    class="image"
+                    src="images/profileImage.png"
+                    alt=" put actore name here"
+                  />
+                  <span>name here</span>
+                </div>
+                <div class="data">
+                  <img
+                    class="image"
+                    src="images/profileImage.png"
+                    alt=" put actore name here"
+                  />
+                  <span>name here</span>
+                </div>
+              </div>
+            </div>
+            <div class="DirectorsActorsLanguages" id="languages">
+              <div class="infoTitle">Languages</div>
+
+              <div class="content">
+                <div class="data">
+                  <img
+                    class="image"
+                    src="images/languageIcon.jpg"
+                    alt="language here"
+                  />
+                  <span>language</span>
+                </div>
+              </div>
+            </div>
             <iframe
-             
               src="https://www.youtube.com/embed/t96vDwlRDzI?si=B7H6EkhKvpELslMw"
               title="YouTube video player"
               frameborder="0"

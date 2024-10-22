@@ -43,7 +43,7 @@
                 </div>
                 <div class="icon">
                   <i class="fa-solid fa-square-poll-vertical"></i>
-                  <span id="movieDuration" class="rate">N/A</span>
+                  <span id="voteCount" class="rate">N/A</span>
                 </div>
               </div>
               <div class="movieGenre" id="movieGenre">
@@ -160,7 +160,7 @@
             document.getElementById("movieTitle").textContent =movie.title || "no title :!";
             document.getElementById("movieRating").textContent =movie.vote_average ? movie.vote_average.toFixed(1) : "0.0";
             document.getElementById("movieYear").textContent =movie.release_date? new Date(movie.release_date).getFullYear(): "no data";
-            document.getElementById("movieDuration").textContent = movie.vote_count? `${movie.vote_count} vote`: "N/A";
+            document.getElementById("voteCount").textContent = movie.vote_count? `${movie.vote_count} vote`: "N/A";
             document.getElementById("movieDescription").textContent =movie.overview || "no description available";
               //document.querySelector("iframe").src=`${movie.}`;
           } else {

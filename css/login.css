@@ -1,0 +1,107 @@
+/* login - sign up forms start */
+:root {
+  --secondry-color: #1c2120;
+  --red-color: red;
+  --background-color: black;
+}
+
+.loginSignUp {
+  position: fixed;
+  left: 0;
+  z-index: 20;
+  height: 100vh;
+  width: 100%;
+  background: var(--background-color);
+  padding: 0 20px;
+}
+.loginSignUp.disabled {
+  display: none;
+}
+.loginSignUp .container {
+  position: relative;
+  min-width: 300px;
+  max-width: 430px;
+  margin: auto;
+  height: 500px;
+  overflow: hidden;
+  margin-top: 60px;
+  border: solid 1px var(--red-color);
+}
+.loginSignUp .container::before {
+  content: "";
+  width: 200px;
+  height: 200px;
+  background: var(--red-color);
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  transform: rotate(45deg);
+}
+.loginSignUp .container::after {
+  content: "";
+  width: 200px;
+  height: 200px;
+  background: var(--red-color);
+  position: absolute;
+  bottom: -100px;
+  right: -100px;
+  transform: rotate(45deg);
+}
+.closeLoginPage {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: var(--red-color);
+  font-size: 40px;
+  cursor: pointer;
+}
+.loginSignUp .container form {
+  position: absolute;
+  width: 93%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 10px;
+  border-radius: 10px;
+  text-align: center;
+  background: var(--background-color);
+  color: var(--red-color);
+}
+.loginSignUp .container form h2 {
+  margin: 20px 0 30px;
+  font-size: 30px;
+  text-transform: capitalize;
+}
+.loginSignUp .container form .Formsign-Up-in-Btn {
+  margin: 30px auto;
+  padding: 10px 30px;
+  display: inline-block;
+  background: var(--red-color);
+  color: var(--background-color);
+  outline: 0;
+  border: none;
+  cursor: pointer;
+}
+.loginSignUp .container input {
+  outline: none;
+  padding: 14px;
+  background: #1a1919b2;
+  color:white;
+  border: solid 2px var(--secondry-color);
+  margin:12px 0;
+}
+
+.loginSignUp .container form > p a {
+  font-weight: bolder;
+  color:white;
+}
+.loginSignUp .container #SignUpForm {
+  bottom: -101%;
+  transition: 400ms;
+
+}
+.loginSignUp .container #SignUpForm.active {
+  bottom: 0;
+}
+/* login - sign up forms end */

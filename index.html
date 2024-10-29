@@ -6,19 +6,105 @@
     <title>movie land</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/userProfile.css" />
+    <link rel="stylesheet" href="css/login.css" />
     <link rel="icon" href="./images/logo.png" type="image/x-icon" />
   </head>
   <body>
+    <div class="Userprofile">
+      <i class="fa-regular fa-circle-xmark closeProfile"></i>
+      <div class="container">
+        <div class="userInfo">
+          <span id="AccountLogOut">log-out</span>
+          <img
+            src="images/logo.png"
+            alt="userName goes here"
+            class="profileImage"
+          />
+          <h3 class="username" id="UserName">mohammed dhedy</h3>
+          <div>
+            <p class="userEmail" id="userEmail">mhmddhedy1234@gmail.com</p>
+          </div>
+        </div>
+        <div class="UserCart" id="userCart">
+          <h3>Favorite movies :</h3>
+          <div class="cartProducts"></div>
+        </div>
+      </div>
+    </div>
+    <div class="loginSignUp disabled">
+      <i class="fa-regular fa-circle-xmark closeLoginPage"></i>
+      <div class="container">
+        <form id="loginForm">
+          <h2>log-in</h2>
+          <input
+            type="email"
+            required
+            id="login-email"
+            placeholder="enter your email"
+          />
+          <input
+            type="password"
+            required
+            id="login-password"
+            placeholder="enter your password"
+          />
+          <button type="submit" class="Formsign-Up-in-Btn">log-in</button>
+          <p>
+            dont have account ? <a href="" class="SignUpFormBTN">sign-up</a>
+          </p>
+        </form>
+        <form id="SignUpForm" class="">
+          <h2>create account</h2>
+          <input
+            required
+            id="signUpName"
+            type="text"
+            required
+            placeholder="enter your name"
+          />
+          <input
+            required
+            id="signUpEmail"
+            type="email"
+            required
+            placeholder="enter your email"
+          />
+
+          <input
+            required
+            id="signUpPassword"
+            type="password"
+            required
+            placeholder="enter your password"
+          />
+
+          <button
+            type="submit"
+            class="Formsign-Up-in-Btn"
+            id="createAccountbtn"
+          >
+            create account
+          </button>
+          <p>
+            already have account ? <a href="" class="LoginFormBtn">log-in</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
     <div class="favoriteAlert">movie added to favorities successfully</div>
     <section class="main">
       <div class="container">
         <header>
           <div class="card">
-            <nav>
+            <nav class="" id="navlogedInMode">
               <div class="logo">
                 <img src="images/logo.png" alt="logo" width="70px" />
                 <h1>MovieLand</h1>
               </div>
+              <a href="#" class="HeaderloginBtn">login</a>
+              <h3 class="userName" id="navUserName">mohammed dhedy</h3>
             </nav>
           </div>
           <div class="Watch-Discover">
@@ -75,7 +161,6 @@
         </div>
       </div>
     </footer>
-    <!-- <script src="js/all.min.js"></script> -->
     <script src="js/app.js"></script>
   </body>
 </html>

@@ -1,0 +1,78 @@
+.Userprofile {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #1c2120;
+  z-index: 20;
+  top: 0;
+  left: -105%;
+  transition: 200ms;
+  padding-top: 35px;
+  border: solid 2px red;
+}
+.Userprofile .closeProfile {
+  font-size: 40px;
+  display: block;
+  text-align: right;
+  margin-top: -20px;
+  margin-right: 20px;
+  color: red;
+  cursor: pointer;
+}
+.Userprofile.active {
+  left: 0;
+}
+.Userprofile .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+}
+.Userprofile .userInfo {
+  padding: 8px 15px 8px 8px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  margin-bottom:30px;
+}
+#AccountLogOut {
+  padding: 6px 10px;
+  background: black;
+  border: solid 1px red;
+  color: red;
+  border-radius: 20px;
+  text-align: center;
+  width: fit-content;
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  cursor: pointer;
+}
+.Userprofile .userInfo img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: solid 2px red;
+  object-fit: cover;
+}
+.Userprofile .UserCart {
+    padding: 15px;
+    overflow-y: scroll;
+    height: calc(100vh - 280px);
+    position: relative;
+  }
+.Userprofile .UserCart > h3 {
+  color: red;
+  font-size: 30px;
+  text-align: center;
+}
+.cartProducts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 300px));
+  grid-gap: 15px;
+  margin: 60px 0 0;
+  justify-content: center;
+}

@@ -44,6 +44,7 @@
 }
 body {
   font-family: "Roboto", sans-serif;
+  position: relative;
 }
 .favoriteAlert{
   position: fixed;
@@ -100,6 +101,9 @@ header nav {
   width: 99.8%;
   height: 99%;
   z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 header nav .logo {
   display: flex;
@@ -114,6 +118,27 @@ header nav .logo {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+header nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  text-transform: uppercase;
+  padding: 6px 22px;
+  background:red;
+  border-radius: 20px;
+}
+header nav h3.userName {
+  color:red;
+  display: none;
+  text-decoration: underline;
+  cursor: pointer;
+}
+header nav.logedIn a {
+  display: none;
+}
+header nav.logedIn h3.userName {
+  display: block;
 }
 /* End of navbar */
 
@@ -324,7 +349,7 @@ header nav .logo {
   margin: 60px 0 0;
   justify-content: center;
 }
-.moviesList .container .content .movieBox {
+ .container  .movieBox {
   position: relative;
   border: solid 1px gray;
   border-radius: 10px;
@@ -332,17 +357,17 @@ header nav .logo {
   overflow: hidden;
   cursor: pointer;
 }
-.moviesList .container .content .movieBox img {
+ .container  .movieBox img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: 400ms;
 }
-.moviesList .container .content .movieBox:hover img {
+ .container  .movieBox:hover img {
   transform: scale(1.05);
   filter: brightness(50%);
 }
-.moviesList .container .content .movieBox::before {
+.container  .movieBox::before {
   content: "";
   position: absolute;
   left: 0;
@@ -353,10 +378,10 @@ header nav .logo {
   z-index: 1;
   transition: 400ms;
 }
-.moviesList .container .content .movieBox:hover::before {
+ .container .movieBox:hover::before {
   bottom: -30px;
 }
-.moviesList .container .content .movieBox span {
+ .container  .movieBox span {
   color: white;
   position: absolute;
   left: 10px;
@@ -366,7 +391,7 @@ header nav .logo {
   font-size: 18px;
   z-index: 2;
 }
-.moviesList .container .content .movieBox .addFav {
+ .container  .movieBox .addFav {
   position: absolute;
   top:10px;
   right: 10px;
@@ -374,233 +399,13 @@ header nav .logo {
   color: white;
   z-index: 2;
 }
-.moviesList .container .content .movieBox .addFav.active {
+ .container  .movieBox .addFav.active {
   font-weight: 800;
   color: crimson;
 }
 /* movies list section end */
 
-/* movie detail html page start*/
-.movieDetail {
-  padding: 50px 10px 25px;
-  width: 100%;
-  min-height: 100vh;
-  background:
-  linear-gradient(to bottom,rgba(185, 4, 4, 0.462),var(--background-color),var(--background-color));
-  text-align: center;
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-}
-.movieDetail > .closeBtn {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 35px;
-  color: white;
-  cursor: pointer;
-}
-.movieDetail .content .topPart {
-  display: flex;
-  margin-bottom: 90px;
-  width: 100%;
-  justify-content: space-evenly;
-}
-.movieDetail .content .image {
-  width: 230px;
-  height: 320px;
-  position: relative;
-}
-.movieDetail .content .image .DataType{
-  position: absolute;
-  top:0;
-  right: 0;
-  padding:8px 10px;
-  background: #000000c4;
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom-left-radius:4px;
-  color: white;
-}
-.movieDetail .content .image .dataRated{
-  position: absolute;
-  bottom:0;
-  left: 0;
-  padding:8px 10px;
-  background: #000000c4;
-  -webkit-backdrop-filter: blur(8px);
-  border-top-right-radius:4px;
-  color: white;
-}
-.movieDetail .content .image::before {
-  content: "";
-  width: 50%;
-  height: 100%;
-  position: absolute;
-  bottom: -25px;
-  left: -25px;
-  border-left: solid 10px var(--red-color);
-  border-bottom: solid 10px var(--red-color);
-}
-.movieDetail .content .image::after {
-  content: "";
-  width: 50%;
-  height: 100%;
-  /* background: var(--red-color); */
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  border-top: solid 10px var(--red-color);
-  border-right: solid 10px var(--red-color);
-}
-.movieDetail .content .image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 
-.movieDetail .content .topPart .detail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.movieDetail .content .topPart .detail .movieTitle {
-  font-size: 44px;
-  color: white;
-  margin: 50px 0 50px;
-}
-.movieDetail .content .topPart .detail .iconsDetail {
-  display: flex;
-  align-items: center;
-  gap:40px;
-}
-.movieDetail .content .detail .iconsDetail .icon {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-}
-.movieDetail .content .detail .iconsDetail .icon i {
-  font-size:44px;
-  color: rgba(225, 225, 225, 0.816);
-}
-.movieDetail .content .detail .iconsDetail .icon span {
-  color: rgb(184, 184, 184);
-}
-.movieDetail .content .bottomPart .description {
-  width: 80%;
-  margin: 0 auto;
-  letter-spacing: 0.5px;
-  line-height: 1.4;
-  color: white;
-  font-size: 18px;
-  text-transform: capitalize;
-}
-.movieDetail .content .buttons {
-  display: flex;
-  margin: 60px 0;
-  justify-content: center;
-  gap: 50px;
-}
-.movieDetail .content .buttons a {
-  display: block;
-  flex-basis: 130px;
-  color: white;
-  font-size: 18px;
-  text-decoration: none;
-  padding: 8px 0;
-  border: solid 1px white;
-  position: relative;
-  overflow: hidden;
-}
-.movieDetail .content .buttons a span {
-  position: relative;
-}
-.movieDetail .content .buttons a::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  background: var(--red-color);
-  position: absolute;
-  left: -50%;
-  top: -20%;
-  transform: rotate(-30deg);
-  transition: 400ms;
-}
-.movieDetail .content .buttons a:hover::before {
-  left: 0;
-  top: 0;
-  transform: rotate(0);
-}
-.movieDetail .content .bottomPart iframe{
-  display: block;
-  width:99%;
-  height:300;
-  margin: auto;
-}
-@media (min-width: 390px) {
-  .movieDetail .content .bottomPart iframe {
-    width:380px;
-    height: 380px;
-  }
-}
-@media (min-width: 767px) {
-  .movieDetail .content .bottomPart iframe {
-    width: 700px;
-    height:500px;
-  }
-}
-@media (max-width: 767px) {
-  .movieDetail .content .topPart {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-@media (max-width: 390px) {
-  .movieDetail .content .image {
-    width: 200px;
-    height: 300px;
-  }
-  .movieDetail .content .detail .iconsDetail .icon i {
-    font-size: 38px;
-  }
-  .movieDetail .content .bottomPart .description {
-    font-size: 15px;
-  }
-}
-.movieDetail .topPart .movieGenre{
-color: rgba(255, 255, 255, 0.784);
-margin:35px 0;
-font-size:18px;
-}
-.DirectorsActorsLanguages{
-  margin:50px 0;
-}
-.DirectorsActorsLanguages .infoTitle{
-  color: var(--red-color);
-  font-size:30px;
-  /* text-align: left; */
-  margin:30px 0;
-}
-.DirectorsActorsLanguages .content{
-  display: flex;
-  flex-wrap: wrap;
-  gap:30px;
-  color: white;
-  justify-content: center;
-}
-.DirectorsActorsLanguages .content .data{
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  align-items: center;
-  flex-basis:77px;
-}
-.DirectorsActorsLanguages .content .data .image{
-  width:75px;
-  height:75px;
-  border-radius:50%;
-}
-/* movie detail html page end */
 /* footer start */
 footer {
   background-color: var(--secondry-color);

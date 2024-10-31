@@ -1,3 +1,5 @@
+
+// here the alert function
 let timeoutId;
 function ActiveLoginAlert() {
   let favoriteAlert = document.querySelector(".favoriteAlert");
@@ -9,7 +11,7 @@ function ActiveLoginAlert() {
     favoriteAlert.classList.remove("active");
   }, 3500);
 }
-
+// here the local storage data
 let idCounter = localStorage.getItem("MovieLandIdCounter")
   ? JSON.parse(localStorage.getItem("MovieLandIdCounter"))
   : 0;
